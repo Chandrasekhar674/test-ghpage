@@ -34,3 +34,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: setup python
+        uses: infamous-riddles/branch-guardian@v1
+        with: 
+          PERSONAL-ACCESS-TOKEN: ${{ secrets.GH_TOKEN }}
+          BASE-BRANCH-PATTERN: '^main\/[a-zA-Z0-9]+$'
+          REQUIRED-NUMBER-OF-REVIEWERS: 2
+          REQUIRED-STATUS-CHECKS: 'build,test'
+          REQUIRE-REVIEW-FROM-CODEOWNERS: 'true'
+          DISMISS-STALE-PR-APPROVALS-ON-NEW-COMMITS: 'true'
+          REQUIRE-LINEAR-HISTORY: 'true'
+          ALLOW-FORCE-PUSHES: 'false'
+          ALLOW-DELETIONS: 'false'
+          INCLUDE-ADMINISTRATORS: 'true'   
