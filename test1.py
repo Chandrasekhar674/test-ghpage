@@ -14,14 +14,14 @@ GH_TOKEN = os.environ['GH_TOKEN']
 def change_protected_branch_settings():
     # Loops through all the repos and changes the /settings/branch_protection_rules/
     # CAREFUL with this!
-    for repo in GH_TOKEN .get_user().get_repos():
+    for repo in GH_TOKEN.get_user().get_repos():
         branch = repo.get_branch("main")
         branch.edit_protection(required_approving_review_count=2, enforce_admins=True)
         print("Edited the branch protection rules for: " + repo.name)
 
 def change_protected_branch_settings_test():
-    repo = GH_TOKEN .get_repo("Chandrasekhar674/test-ghpage")
-    branch = GH_TOKEN .get_repo("Chandrasekhar674/test-ghpage").get_branch("main")
+    repo = GH_TOKEN.get_repo("Chandrasekhar674/test-ghpage")
+    branch = GH_TOKEN.get_repo("Chandrasekhar674/test-ghpage").get_branch("main")
     branch.edit_protection(required_approving_review_count=2, enforce_admins=True)
 
 # Uncomment out one of these lines. Test to test a single repo/branch.
