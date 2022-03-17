@@ -46,4 +46,4 @@ jobs:
       - name: github token # run sj-gobierno.py to get the latest data
         env: 
           GH_TOKEN_TEST: ${{ secrets.GH_TOKEN }}
-        run: python gh.py    
+        run: python test1.py    
